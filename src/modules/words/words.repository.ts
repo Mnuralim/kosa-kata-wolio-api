@@ -8,6 +8,7 @@ export const wordsRepository = {
     search?: string
     categoryId?: string
     hasAudio?: string
+    hasScript?: string
     sortBy?: string
     sortOrder?: 'asc' | 'desc'
   }) {
@@ -29,6 +30,12 @@ export const wordsRepository = {
       where.audios = { some: { isDeleted: false } }
     } else if (params.hasAudio === 'false') {
       where.audios = { none: { isDeleted: false } }
+    }
+
+    if (params.hasScript === 'true') {
+      where.localScript = { not: null }
+    } else if (params.hasScript === 'false') {
+      where.localScript = null
     }
 
     const orderBy = params.sortBy

@@ -19,6 +19,7 @@ export const wordsService = {
     search?: string
     categoryId?: string
     hasAudio?: string
+    hasScript?: string
     sortBy?: string
     sortOrder?: string
   }) {
@@ -32,6 +33,7 @@ export const wordsService = {
       search: query.search,
       categoryId: query.categoryId,
       hasAudio: query.hasAudio,
+      hasScript: query.hasScript,
       sortBy: query.sortBy,
       sortOrder: (query.sortOrder as 'asc' | 'desc') ?? 'desc'
     })
