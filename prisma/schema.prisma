@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id        String    @id @default(uuid()) @map("pengguna_id")
+  username  String    @map("nama_pengguna") @db.VarChar(100)
+  name      String    @map("nama") @db.VarChar(255)
+  password  String    @map("kata_sandi") @db.VarChar(255)
+  role      Role      @default(ADMIN) @map("peran")
+  isDeleted Boolean   @default(false) @map("terhapus")
+  deletedAt DateTime? @map("terhapus_pada")
+  createdAt DateTime  @default(now()) @map("dibuat_pada")
+  updatedAt DateTime  @updatedAt @map("diperbarui_pada")
+
+  @@index([username])
+  @@map("pengguna")
+}
+
+model Category {
+  id        String    @id @default(uuid()) @map("kategori_id")
+  name      String    @unique @map("nama") @db.VarChar(255)
+  isDeleted Boolean   @default(false) @map("terhapus")
+  deletedAt DateTime? @map("terhapus_pada")
+  createdAt DateTime  @default(now()) @map("dibuat_pada")
+  updatedAt DateTime  @updatedAt @map("diperbarui_pada")
+
+  words Word[]
+
+  @@map("kategori")
+}
+
+model Word {
+  id            String    @id @default(uuid()) @map("kata_id")
+  indonesian    String    @map("bahasa_indonesia") @db.VarChar(255)
+  localLanguage String    @map("bahasa_daerah") @db.VarChar(255)
+  localScript   String?   @map("aksara_daerah") @db.Text
+  categoryId    String    @map("kategori_id") @db.VarChar(36)
+  category      Category  @relation(fields: [categoryId], references: [id])
+  audios        Audio[]
+  isDeleted     Boolean   @default(false) @map("terhapus")
+  deletedAt     DateTime? @map("terhapus_pada")
+  createdAt     DateTime  @default(now()) @map("dibuat_pada")
+  updatedAt     DateTime  @updatedAt @map("diperbarui_pada")
+
+  @@index([indonesian])
+  @@index([localLanguage])
+  @@index([categoryId])
+  @@map("kata")
+}
+
+model Audio {
+  id        String    @id @default(uuid()) @map("audio_id")
+  url       String    @map("url") @db.VarChar(500)
+  wordId    String    @map("kata_id") @db.VarChar(36)
+  word      Word      @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  isDeleted Boolean   @default(false) @map("terhapus")
+  deletedAt DateTime? @map("terhapus_pada")
+  createdAt DateTime  @default(now()) @map("dibuat_pada")
+
+  @@index([wordId])
+  @@map("audio")
+}
+
+model SyncMeta {
+  key   String @id @map("kunci") @db.VarChar(100)
+  value String @map("nilai") @db.Text
+
+  @@map("meta_sinkronisasi")
+}
+
+enum Role {
+  ADMIN
+  SUPER_ADMIN
+}
