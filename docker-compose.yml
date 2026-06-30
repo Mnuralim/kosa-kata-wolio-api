@@ -10,10 +10,10 @@ services:
     networks:
       - kosa-kata-wolio-net
     ports:
-      - "${API_PORT:-5005}:5005"
+      - "${API_PORT:-5006}:5006"
     environment:
       NODE_ENV: ${NODE_ENV:-production}
-      PORT: "5005"
+      PORT: "5006"
       APP_NAME: kosa-kata-wolio-api
       DATABASE_URL: "mysql://${DATABASE_USER:-root}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT:-3306}/${DATABASE_NAME:-kosa_kata_wolio}?allowPublicKeyRetrieval=true"
       DATABASE_HOST: ${DATABASE_HOST}
