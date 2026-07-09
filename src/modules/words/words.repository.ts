@@ -160,7 +160,6 @@ export const wordsRepository = {
     })
   },
 
-  // Audio operations
   addAudio(wordId: string, url: string) {
     return prisma.audio.create({
       data: { url, wordId }
@@ -208,7 +207,6 @@ export const wordsRepository = {
     })
   },
 
-  // Sync
   findAllUpdated(params: {
     skip: number
     take: number
@@ -251,7 +249,6 @@ export const wordsRepository = {
     })
   },
 
-  // Dashboard stats
   async getStats() {
     const [
       totalWords,

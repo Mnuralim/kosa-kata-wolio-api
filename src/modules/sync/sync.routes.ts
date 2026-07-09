@@ -5,7 +5,6 @@ import { syncQuerySchema } from './sync.schema'
 
 export const syncRoutes = Router()
 
-// Public — mobile app akses tanpa auth
 syncRoutes.get(
   '/words',
   validate(syncQuerySchema, 'query'),

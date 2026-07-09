@@ -10,7 +10,7 @@ export function errorMiddleware(
   res: Response,
   _next: NextFunction
 ): void {
-  // Zod validation error
+
   if (err instanceof ZodError) {
     res.status(422).json({
       success: false,
@@ -23,7 +23,6 @@ export function errorMiddleware(
     return
   }
 
-  // HTTP exception
   if (err instanceof HttpException) {
     res.status(err.statusCode).json({
       success: false,
@@ -33,7 +32,6 @@ export function errorMiddleware(
     return
   }
 
-  // Prisma unique constraint
   if (
     err instanceof Prisma.PrismaClientKnownRequestError &&
     err.code === 'P2002'
@@ -45,7 +43,6 @@ export function errorMiddleware(
     return
   }
 
-  // Prisma not found
   if (
     err instanceof Prisma.PrismaClientKnownRequestError &&
     err.code === 'P2025'
@@ -57,7 +54,6 @@ export function errorMiddleware(
     return
   }
 
-  // Unknown error
   logger.error(err, 'Unhandled error')
 
   res.status(500).json({

@@ -56,11 +56,10 @@ export const wordsService = {
   },
 
   async create(input: CreateWordInput) {
-    // Validasi kategori
+
     const category = await categoriesRepository.findById(input.categoryId)
     if (!category) throw new NotFoundException('Kategori')
 
-    // Cek duplikat
     const existing = await wordsRepository.findDuplicate(
       input.indonesian.trim(),
       input.localLanguage.trim(),
@@ -96,7 +95,6 @@ export const wordsService = {
       throw new ConflictException('Kata sudah ada pada kategori ini')
     }
 
-    // Update data kata
     const updated = await wordsRepository.update(id, {
       indonesian: input.indonesian.trim(),
       localLanguage: input.localLanguage.trim(),
@@ -104,12 +102,10 @@ export const wordsService = {
       categoryId: input.categoryId
     })
 
-    // Replace audio jika audioUrls dikirim
     if (input.audioUrls !== undefined) {
       await wordsRepository.replaceAudiosBulk(id, input.audioUrls)
     }
 
-    // Return data terbaru
     return wordsRepository.findById(id)
   },
 
@@ -128,7 +124,6 @@ export const wordsService = {
     return true
   },
 
-  // Audio operations
   async addAudio(wordId: string, url: string) {
     const word = await wordsRepository.findById(wordId)
     if (!word) throw new NotFoundException('Kata')
@@ -151,7 +146,6 @@ export const wordsService = {
     return wordsRepository.replaceAudio(wordId, url.trim())
   },
 
-  // Dashboard
   async getStats() {
     return wordsRepository.getStats()
   }

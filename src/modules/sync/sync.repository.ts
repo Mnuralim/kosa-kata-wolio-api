@@ -64,7 +64,6 @@ export const syncRepository = {
       where: { key: 'sync_version' }
     })
 
-    // Hitung versi dari max updatedAt
     const [lastWordUpdate, lastCategoryUpdate] = await Promise.all([
       prisma.word.findFirst({
         where: { isDeleted: false },

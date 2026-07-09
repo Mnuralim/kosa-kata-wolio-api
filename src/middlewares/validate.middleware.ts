@@ -12,7 +12,6 @@ export function validate(schema: ZodSchema, target: ValidationTarget = 'body') {
       return
     }
 
-    // Express 5: body is writable, but query/params are not
     if (target === 'body') {
       req.body = result.data
     } else if (target === 'query') {

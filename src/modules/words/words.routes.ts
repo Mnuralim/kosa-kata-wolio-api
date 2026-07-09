@@ -14,10 +14,8 @@ export const wordsRoutes = Router()
 
 wordsRoutes.use(authenticate, authorizeAll)
 
-// Stats
 wordsRoutes.get('/stats', wordsController.stats)
 
-// Words CRUD
 wordsRoutes.get('/', wordsController.list)
 wordsRoutes.get('/:id', wordsController.getById)
 wordsRoutes.post('/', validate(createWordSchema), wordsController.create)
@@ -29,7 +27,6 @@ wordsRoutes.patch(
 )
 wordsRoutes.delete('/:id', wordsController.delete)
 
-// Audio
 wordsRoutes.post(
   '/audio',
   validate(addAudioSchema),

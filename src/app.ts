@@ -9,20 +9,16 @@ import { apiRoutes } from '@/routes'
 
 export const app = express()
 
-// Security headers
 app.use(helmet())
 
-// Body parsers
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Request logging
 if (env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 app.use(httpLogger)
 
-// CORS
 app.use(
   cors({
     origin: env.NODE_ENV === 'production'
@@ -32,7 +28,6 @@ app.use(
   })
 )
 
-// Health check
 app.get('/', (_req, res) => {
   res.json({
     success: true,
@@ -45,10 +40,8 @@ app.get('/health', (_req, res) => {
   res.json({ success: true, message: 'OK' })
 })
 
-// API routes
 app.use('/api/v1', apiRoutes)
 
-// 404 catch-all
 app.use((_req, res) => {
   res.status(404).json({
     success: false,
@@ -56,5 +49,4 @@ app.use((_req, res) => {
   })
 })
 
-// Global error handler
 app.use(errorMiddleware)
