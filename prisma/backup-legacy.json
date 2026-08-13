@@ -1,0 +1,239 @@
+{
+  "users": [
+    {
+      "id": "super-admin-seed",
+      "username": "admin",
+      "name": "Administrator",
+      "password": "$2b$10$4fmyOBaZBo7urDwli6lm4OFOSSd392nxVt.WIBOgraCs0eUm5xsDK",
+      "role": "SUPER_ADMIN",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.232Z",
+      "updatedAt": "2026-06-25T10:45:48.232Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "d2f88a37-008a-4055-8c5f-b0e07468f28f",
+      "name": "Test update",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-29T12:29:00.681Z",
+      "createdAt": "2026-06-29T12:28:44.926Z",
+      "updatedAt": "2026-06-29T12:29:00.699Z"
+    },
+    {
+      "id": "seed-category-angka",
+      "name": "Angka",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.329Z",
+      "updatedAt": "2026-06-25T10:45:48.329Z"
+    },
+    {
+      "id": "seed-category-arah",
+      "name": "Arah",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.365Z",
+      "updatedAt": "2026-06-25T11:53:00.403Z"
+    },
+    {
+      "id": "seed-category-kata-benda",
+      "name": "Kata Benda",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.314Z",
+      "updatedAt": "2026-06-25T10:45:48.314Z"
+    },
+    {
+      "id": "seed-category-kata-ganti",
+      "name": "Kata Ganti",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.278Z",
+      "updatedAt": "2026-06-25T10:45:48.278Z"
+    },
+    {
+      "id": "seed-category-kata-kerja",
+      "name": "Kata Kerja",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.289Z",
+      "updatedAt": "2026-06-25T10:45:48.289Z"
+    },
+    {
+      "id": "seed-category-kata-sifat",
+      "name": "Kata Sifat",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.300Z",
+      "updatedAt": "2026-06-25T10:45:48.300Z"
+    },
+    {
+      "id": "seed-category-sapaan",
+      "name": "Sapaan",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.341Z",
+      "updatedAt": "2026-06-25T10:45:48.341Z"
+    },
+    {
+      "id": "seed-category-warna",
+      "name": "Warna",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T10:45:48.355Z",
+      "updatedAt": "2026-06-25T10:53:50.283Z"
+    }
+  ],
+  "words": [
+    {
+      "id": "0a6b6fd0-aed0-40af-9809-ef6487c390de",
+      "indonesian": "Test",
+      "localLanguage": "Test",
+      "localScript": "رلسِمز",
+      "categoryId": "seed-category-kata-benda",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T11:02:30.524Z",
+      "updatedAt": "2026-06-25T11:32:15.858Z"
+    },
+    {
+      "id": "3504cd1b-4d57-424b-b123-102a40b65df5",
+      "indonesian": "Hehe",
+      "localLanguage": "Hehe",
+      "localScript": "ىىكك",
+      "categoryId": "seed-category-kata-benda",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T11:58:07.326Z",
+      "updatedAt": "2026-06-25T11:58:07.326Z"
+    },
+    {
+      "id": "5b20348b-b4e1-4b63-aeb3-4b2f906eadf9",
+      "indonesian": "Test update",
+      "localLanguage": "Test",
+      "localScript": "اسنَ",
+      "categoryId": "seed-category-kata-sifat",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-29T12:31:05.407Z",
+      "createdAt": "2026-06-29T12:29:55.862Z",
+      "updatedAt": "2026-06-29T12:31:05.419Z"
+    },
+    {
+      "id": "9f0e8f2a-95d0-4bce-9bb3-23959a30a46d",
+      "indonesian": "Saya",
+      "localLanguage": "Yaku",
+      "localScript": "ىَاكُو",
+      "categoryId": "seed-category-kata-sifat",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T11:16:03.422Z",
+      "updatedAt": "2026-06-25T11:36:16.274Z"
+    }
+  ],
+  "audios": [
+    {
+      "id": "03aa8d1e-fbfc-4db0-9591-f0aa602f3b7b",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782387101493_o3Mz7O9Pa.m4a",
+      "wordId": "0a6b6fd0-aed0-40af-9809-ef6487c390de",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-25T11:32:15.875Z",
+      "createdAt": "2026-06-25T11:31:43.753Z"
+    },
+    {
+      "id": "06acd642-0bac-4a54-8a10-e31045cfda84",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782736180435_Gr8zTo9hV.m4a",
+      "wordId": "5b20348b-b4e1-4b63-aeb3-4b2f906eadf9",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-29T12:30:55.989Z",
+      "createdAt": "2026-06-29T12:29:55.862Z"
+    },
+    {
+      "id": "1b21ce4e-c49c-4c6c-9b1c-8c07215a0349",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782387372424_USMhA97ND.m4a",
+      "wordId": "9f0e8f2a-95d0-4bce-9bb3-23959a30a46d",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T11:36:16.297Z"
+    },
+    {
+      "id": "28679814-70b3-4d10-aea2-d35d6c504501",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782387129324_UYxnp7L1f.m4a",
+      "wordId": "0a6b6fd0-aed0-40af-9809-ef6487c390de",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-25T11:32:15.881Z"
+    },
+    {
+      "id": "4007786e-e0b3-410d-bc5e-13b74805d0b8",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782386572525_z1dnQE3vr.m4a",
+      "wordId": "9f0e8f2a-95d0-4bce-9bb3-23959a30a46d",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-25T11:27:39.552Z",
+      "createdAt": "2026-06-25T11:23:05.978Z"
+    },
+    {
+      "id": "54571175-769f-4c33-af45-c54d44931b01",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782736307734_K03flfZeV.m4a",
+      "wordId": "3504cd1b-4d57-424b-b123-102a40b65df5",
+      "isDeleted": 0,
+      "deletedAt": null,
+      "createdAt": "2026-06-29T12:31:53.317Z"
+    },
+    {
+      "id": "579ce81e-0281-4cf9-8e5d-0c9fabd34a67",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782736248197_LnXNe9G5W.m4a",
+      "wordId": "5b20348b-b4e1-4b63-aeb3-4b2f906eadf9",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-29T12:31:05.405Z",
+      "createdAt": "2026-06-29T12:30:55.997Z"
+    },
+    {
+      "id": "a154c562-eef9-4a11-9e79-1ce61428408a",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782388680083_eJCILfIoV.m4a",
+      "wordId": "3504cd1b-4d57-424b-b123-102a40b65df5",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-29T12:31:53.310Z",
+      "createdAt": "2026-06-25T11:58:07.326Z"
+    },
+    {
+      "id": "a8b3dfac-4d78-4a6f-92f5-5ed5ef647574",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782386572525_z1dnQE3vr.m4a",
+      "wordId": "9f0e8f2a-95d0-4bce-9bb3-23959a30a46d",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-25T11:27:59.151Z",
+      "createdAt": "2026-06-25T11:27:39.561Z"
+    },
+    {
+      "id": "c4f7d9b1-8121-4d8d-8571-1d7151f52454",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782386734615_a-6litFAV.m4a",
+      "wordId": "0a6b6fd0-aed0-40af-9809-ef6487c390de",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-25T11:31:39.454Z",
+      "createdAt": "2026-06-25T11:25:37.420Z"
+    },
+    {
+      "id": "ccebb5c3-fec0-47c2-bc57-9982b25fbac1",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782387093821_ew-sIwQYh.m4a",
+      "wordId": "0a6b6fd0-aed0-40af-9809-ef6487c390de",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-25T11:31:43.750Z",
+      "createdAt": "2026-06-25T11:31:39.459Z"
+    },
+    {
+      "id": "da2a4a39-fe70-4143-a19a-3cc6ddae0510",
+      "url": "https://ik.imagekit.io/wridvl3du/words/audio/words-audio-1782386876568_7hIgUzHBE.m4a",
+      "wordId": "9f0e8f2a-95d0-4bce-9bb3-23959a30a46d",
+      "isDeleted": 1,
+      "deletedAt": "2026-06-25T11:36:16.290Z",
+      "createdAt": "2026-06-25T11:27:59.155Z"
+    }
+  ],
+  "syncMeta": [
+    {
+      "key": "sync_version",
+      "value": "1"
+    }
+  ]
+}

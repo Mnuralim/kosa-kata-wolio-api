@@ -42,3 +42,13 @@ export type Audio = Prisma.AudioModel
  * 
  */
 export type SyncMeta = Prisma.SyncMetaModel
+/**
+ * Model Quiz
+ * 
+ */
+export type Quiz = Prisma.QuizModel
+/**
+ * Model QuizQuestion
+ * 
+ */
+export type QuizQuestion = Prisma.QuizQuestionModel

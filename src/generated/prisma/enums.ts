@@ -15,3 +15,24 @@ export const Role = {
 } as const
 
 export type Role = (typeof Role)[keyof typeof Role]
+
+
+export const QuizLevel = {
+  EASY: 'EASY',
+  MEDIUM: 'MEDIUM',
+  HARD: 'HARD'
+} as const
+
+export type QuizLevel = (typeof QuizLevel)[keyof typeof QuizLevel]
+
+
+export const QuizQuestionType = {
+  ID_TO_LOCAL: 'ID_TO_LOCAL',
+  LOCAL_TO_ID: 'LOCAL_TO_ID',
+  SCRIPT_TO_ID: 'SCRIPT_TO_ID',
+  SCRIPT_TO_LOCAL: 'SCRIPT_TO_LOCAL',
+  AUDIO_TO_ID: 'AUDIO_TO_ID',
+  AUDIO_TO_LOCAL: 'AUDIO_TO_LOCAL'
+} as const
+
+export type QuizQuestionType = (typeof QuizQuestionType)[keyof typeof QuizQuestionType]

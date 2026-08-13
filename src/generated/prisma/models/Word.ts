@@ -216,6 +216,7 @@ export type WordWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"Word"> | Date | string
   category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
   audios?: Prisma.AudioListRelationFilter
+  quizQuestions?: Prisma.QuizQuestionListRelationFilter
 }
 
 export type WordOrderByWithRelationInput = {
@@ -230,6 +231,7 @@ export type WordOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   category?: Prisma.CategoryOrderByWithRelationInput
   audios?: Prisma.AudioOrderByRelationAggregateInput
+  quizQuestions?: Prisma.QuizQuestionOrderByRelationAggregateInput
   _relevance?: Prisma.WordOrderByRelevanceInput
 }
 
@@ -248,6 +250,7 @@ export type WordWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"Word"> | Date | string
   category?: Prisma.XOR<Prisma.CategoryScalarRelationFilter, Prisma.CategoryWhereInput>
   audios?: Prisma.AudioListRelationFilter
+  quizQuestions?: Prisma.QuizQuestionListRelationFilter
 }, "id">
 
 export type WordOrderByWithAggregationInput = {
@@ -291,6 +294,7 @@ export type WordCreateInput = {
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutWordsInput
   audios?: Prisma.AudioCreateNestedManyWithoutWordInput
+  quizQuestions?: Prisma.QuizQuestionCreateNestedManyWithoutWordInput
 }
 
 export type WordUncheckedCreateInput = {
@@ -304,6 +308,7 @@ export type WordUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   audios?: Prisma.AudioUncheckedCreateNestedManyWithoutWordInput
+  quizQuestions?: Prisma.QuizQuestionUncheckedCreateNestedManyWithoutWordInput
 }
 
 export type WordUpdateInput = {
@@ -317,6 +322,7 @@ export type WordUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutWordsNestedInput
   audios?: Prisma.AudioUpdateManyWithoutWordNestedInput
+  quizQuestions?: Prisma.QuizQuestionUpdateManyWithoutWordNestedInput
 }
 
 export type WordUncheckedUpdateInput = {
@@ -330,6 +336,7 @@ export type WordUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   audios?: Prisma.AudioUncheckedUpdateManyWithoutWordNestedInput
+  quizQuestions?: Prisma.QuizQuestionUncheckedUpdateManyWithoutWordNestedInput
 }
 
 export type WordCreateManyInput = {
@@ -484,6 +491,20 @@ export type WordUpdateOneRequiredWithoutAudiosNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.WordUpdateToOneWithWhereWithoutAudiosInput, Prisma.WordUpdateWithoutAudiosInput>, Prisma.WordUncheckedUpdateWithoutAudiosInput>
 }
 
+export type WordCreateNestedOneWithoutQuizQuestionsInput = {
+  create?: Prisma.XOR<Prisma.WordCreateWithoutQuizQuestionsInput, Prisma.WordUncheckedCreateWithoutQuizQuestionsInput>
+  connectOrCreate?: Prisma.WordCreateOrConnectWithoutQuizQuestionsInput
+  connect?: Prisma.WordWhereUniqueInput
+}
+
+export type WordUpdateOneRequiredWithoutQuizQuestionsNestedInput = {
+  create?: Prisma.XOR<Prisma.WordCreateWithoutQuizQuestionsInput, Prisma.WordUncheckedCreateWithoutQuizQuestionsInput>
+  connectOrCreate?: Prisma.WordCreateOrConnectWithoutQuizQuestionsInput
+  upsert?: Prisma.WordUpsertWithoutQuizQuestionsInput
+  connect?: Prisma.WordWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WordUpdateToOneWithWhereWithoutQuizQuestionsInput, Prisma.WordUpdateWithoutQuizQuestionsInput>, Prisma.WordUncheckedUpdateWithoutQuizQuestionsInput>
+}
+
 export type WordCreateWithoutCategoryInput = {
   id?: string
   indonesian: string
@@ -494,6 +515,7 @@ export type WordCreateWithoutCategoryInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   audios?: Prisma.AudioCreateNestedManyWithoutWordInput
+  quizQuestions?: Prisma.QuizQuestionCreateNestedManyWithoutWordInput
 }
 
 export type WordUncheckedCreateWithoutCategoryInput = {
@@ -506,6 +528,7 @@ export type WordUncheckedCreateWithoutCategoryInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   audios?: Prisma.AudioUncheckedCreateNestedManyWithoutWordInput
+  quizQuestions?: Prisma.QuizQuestionUncheckedCreateNestedManyWithoutWordInput
 }
 
 export type WordCreateOrConnectWithoutCategoryInput = {
@@ -559,6 +582,7 @@ export type WordCreateWithoutAudiosInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutWordsInput
+  quizQuestions?: Prisma.QuizQuestionCreateNestedManyWithoutWordInput
 }
 
 export type WordUncheckedCreateWithoutAudiosInput = {
@@ -571,6 +595,7 @@ export type WordUncheckedCreateWithoutAudiosInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  quizQuestions?: Prisma.QuizQuestionUncheckedCreateNestedManyWithoutWordInput
 }
 
 export type WordCreateOrConnectWithoutAudiosInput = {
@@ -599,6 +624,7 @@ export type WordUpdateWithoutAudiosInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutWordsNestedInput
+  quizQuestions?: Prisma.QuizQuestionUpdateManyWithoutWordNestedInput
 }
 
 export type WordUncheckedUpdateWithoutAudiosInput = {
@@ -611,6 +637,75 @@ export type WordUncheckedUpdateWithoutAudiosInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  quizQuestions?: Prisma.QuizQuestionUncheckedUpdateManyWithoutWordNestedInput
+}
+
+export type WordCreateWithoutQuizQuestionsInput = {
+  id?: string
+  indonesian: string
+  localLanguage: string
+  localScript?: string | null
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  category: Prisma.CategoryCreateNestedOneWithoutWordsInput
+  audios?: Prisma.AudioCreateNestedManyWithoutWordInput
+}
+
+export type WordUncheckedCreateWithoutQuizQuestionsInput = {
+  id?: string
+  indonesian: string
+  localLanguage: string
+  localScript?: string | null
+  categoryId: string
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  audios?: Prisma.AudioUncheckedCreateNestedManyWithoutWordInput
+}
+
+export type WordCreateOrConnectWithoutQuizQuestionsInput = {
+  where: Prisma.WordWhereUniqueInput
+  create: Prisma.XOR<Prisma.WordCreateWithoutQuizQuestionsInput, Prisma.WordUncheckedCreateWithoutQuizQuestionsInput>
+}
+
+export type WordUpsertWithoutQuizQuestionsInput = {
+  update: Prisma.XOR<Prisma.WordUpdateWithoutQuizQuestionsInput, Prisma.WordUncheckedUpdateWithoutQuizQuestionsInput>
+  create: Prisma.XOR<Prisma.WordCreateWithoutQuizQuestionsInput, Prisma.WordUncheckedCreateWithoutQuizQuestionsInput>
+  where?: Prisma.WordWhereInput
+}
+
+export type WordUpdateToOneWithWhereWithoutQuizQuestionsInput = {
+  where?: Prisma.WordWhereInput
+  data: Prisma.XOR<Prisma.WordUpdateWithoutQuizQuestionsInput, Prisma.WordUncheckedUpdateWithoutQuizQuestionsInput>
+}
+
+export type WordUpdateWithoutQuizQuestionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  indonesian?: Prisma.StringFieldUpdateOperationsInput | string
+  localLanguage?: Prisma.StringFieldUpdateOperationsInput | string
+  localScript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  category?: Prisma.CategoryUpdateOneRequiredWithoutWordsNestedInput
+  audios?: Prisma.AudioUpdateManyWithoutWordNestedInput
+}
+
+export type WordUncheckedUpdateWithoutQuizQuestionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  indonesian?: Prisma.StringFieldUpdateOperationsInput | string
+  localLanguage?: Prisma.StringFieldUpdateOperationsInput | string
+  localScript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryId?: Prisma.StringFieldUpdateOperationsInput | string
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  audios?: Prisma.AudioUncheckedUpdateManyWithoutWordNestedInput
 }
 
 export type WordCreateManyCategoryInput = {
@@ -634,6 +729,7 @@ export type WordUpdateWithoutCategoryInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   audios?: Prisma.AudioUpdateManyWithoutWordNestedInput
+  quizQuestions?: Prisma.QuizQuestionUpdateManyWithoutWordNestedInput
 }
 
 export type WordUncheckedUpdateWithoutCategoryInput = {
@@ -646,6 +742,7 @@ export type WordUncheckedUpdateWithoutCategoryInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   audios?: Prisma.AudioUncheckedUpdateManyWithoutWordNestedInput
+  quizQuestions?: Prisma.QuizQuestionUncheckedUpdateManyWithoutWordNestedInput
 }
 
 export type WordUncheckedUpdateManyWithoutCategoryInput = {
@@ -666,10 +763,12 @@ export type WordUncheckedUpdateManyWithoutCategoryInput = {
 
 export type WordCountOutputType = {
   audios: number
+  quizQuestions: number
 }
 
 export type WordCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   audios?: boolean | WordCountOutputTypeCountAudiosArgs
+  quizQuestions?: boolean | WordCountOutputTypeCountQuizQuestionsArgs
 }
 
 /**
@@ -689,6 +788,13 @@ export type WordCountOutputTypeCountAudiosArgs<ExtArgs extends runtime.Types.Ext
   where?: Prisma.AudioWhereInput
 }
 
+/**
+ * WordCountOutputType without action
+ */
+export type WordCountOutputTypeCountQuizQuestionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.QuizQuestionWhereInput
+}
+
 
 export type WordSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -702,6 +808,7 @@ export type WordSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   updatedAt?: boolean
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
   audios?: boolean | Prisma.Word$audiosArgs<ExtArgs>
+  quizQuestions?: boolean | Prisma.Word$quizQuestionsArgs<ExtArgs>
   _count?: boolean | Prisma.WordCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["word"]>
 
@@ -723,6 +830,7 @@ export type WordOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type WordInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
   audios?: boolean | Prisma.Word$audiosArgs<ExtArgs>
+  quizQuestions?: boolean | Prisma.Word$quizQuestionsArgs<ExtArgs>
   _count?: boolean | Prisma.WordCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -731,6 +839,7 @@ export type $WordPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     category: Prisma.$CategoryPayload<ExtArgs>
     audios: Prisma.$AudioPayload<ExtArgs>[]
+    quizQuestions: Prisma.$QuizQuestionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1084,6 +1193,7 @@ export interface Prisma__WordClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   category<T extends Prisma.CategoryDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoryDefaultArgs<ExtArgs>>): Prisma.Prisma__CategoryClient<runtime.Types.Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   audios<T extends Prisma.Word$audiosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Word$audiosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AudioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  quizQuestions<T extends Prisma.Word$quizQuestionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Word$quizQuestionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuizQuestionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1491,6 +1601,30 @@ export type Word$audiosArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   distinct?: Prisma.AudioScalarFieldEnum | Prisma.AudioScalarFieldEnum[]
+}
+
+/**
+ * Word.quizQuestions
+ */
+export type Word$quizQuestionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the QuizQuestion
+   */
+  select?: Prisma.QuizQuestionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the QuizQuestion
+   */
+  omit?: Prisma.QuizQuestionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.QuizQuestionInclude<ExtArgs> | null
+  where?: Prisma.QuizQuestionWhereInput
+  orderBy?: Prisma.QuizQuestionOrderByWithRelationInput | Prisma.QuizQuestionOrderByWithRelationInput[]
+  cursor?: Prisma.QuizQuestionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.QuizQuestionScalarFieldEnum | Prisma.QuizQuestionScalarFieldEnum[]
 }
 
 /**

@@ -43,6 +43,7 @@ model Word {
   categoryId    String    @map("kategori_id") @db.VarChar(36)
   category      Category  @relation(fields: [categoryId], references: [id])
   audios        Audio[]
+  quizQuestions QuizQuestion[]
   isDeleted     Boolean   @default(false) @map("terhapus")
   deletedAt     DateTime? @map("terhapus_pada")
   createdAt     DateTime  @default(now()) @map("dibuat_pada")
@@ -77,4 +78,51 @@ model SyncMeta {
 enum Role {
   ADMIN
   SUPER_ADMIN
+}
+
+enum QuizLevel {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum QuizQuestionType {
+  ID_TO_LOCAL
+  LOCAL_TO_ID
+  SCRIPT_TO_ID
+  SCRIPT_TO_LOCAL
+  AUDIO_TO_ID
+  AUDIO_TO_LOCAL
+}
+
+model Quiz {
+  id        String    @id @default(uuid()) @map("kuis_id")
+  title     String    @map("judul") @db.VarChar(255)
+  level     QuizLevel @map("tingkat")
+  isDeleted Boolean   @default(false) @map("terhapus")
+  deletedAt DateTime? @map("terhapus_pada")
+  createdAt DateTime  @default(now()) @map("dibuat_pada")
+  updatedAt DateTime  @updatedAt @map("diperbarui_pada")
+
+  questions QuizQuestion[]
+
+  @@index([level])
+  @@map("kuis")
+}
+
+model QuizQuestion {
+  id        String           @id @default(uuid()) @map("soal_id")
+  quizId    String           @map("kuis_id") @db.VarChar(36)
+  quiz      Quiz             @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  wordId    String           @map("kata_id") @db.VarChar(36)
+  word      Word             @relation(fields: [wordId], references: [id])
+  type      QuizQuestionType @default(ID_TO_LOCAL) @map("tipe")
+  choices   Json             @map("pilihan")
+  order     Int              @default(0) @map("urutan")
+  isDeleted Boolean          @default(false) @map("terhapus")
+  deletedAt DateTime?        @map("terhapus_pada")
+  createdAt DateTime         @default(now()) @map("dibuat_pada")
+
+  @@index([quizId])
+  @@map("soal_kuis")
 }

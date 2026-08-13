@@ -55,7 +55,9 @@ export const ModelName = {
   Category: 'Category',
   Word: 'Word',
   Audio: 'Audio',
-  SyncMeta: 'SyncMeta'
+  SyncMeta: 'SyncMeta',
+  Quiz: 'Quiz',
+  QuizQuestion: 'QuizQuestion'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -136,12 +138,47 @@ export const SyncMetaScalarFieldEnum = {
 export type SyncMetaScalarFieldEnum = (typeof SyncMetaScalarFieldEnum)[keyof typeof SyncMetaScalarFieldEnum]
 
 
+export const QuizScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  level: 'level',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type QuizScalarFieldEnum = (typeof QuizScalarFieldEnum)[keyof typeof QuizScalarFieldEnum]
+
+
+export const QuizQuestionScalarFieldEnum = {
+  id: 'id',
+  quizId: 'quizId',
+  wordId: 'wordId',
+  type: 'type',
+  choices: 'choices',
+  order: 'order',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type QuizQuestionScalarFieldEnum = (typeof QuizQuestionScalarFieldEnum)[keyof typeof QuizQuestionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const NullsOrder = {
@@ -196,4 +233,38 @@ export const SyncMetaOrderByRelevanceFieldEnum = {
 } as const
 
 export type SyncMetaOrderByRelevanceFieldEnum = (typeof SyncMetaOrderByRelevanceFieldEnum)[keyof typeof SyncMetaOrderByRelevanceFieldEnum]
+
+
+export const QuizOrderByRelevanceFieldEnum = {
+  id: 'id',
+  title: 'title'
+} as const
+
+export type QuizOrderByRelevanceFieldEnum = (typeof QuizOrderByRelevanceFieldEnum)[keyof typeof QuizOrderByRelevanceFieldEnum]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const QuizQuestionOrderByRelevanceFieldEnum = {
+  id: 'id',
+  quizId: 'quizId',
+  wordId: 'wordId'
+} as const
+
+export type QuizQuestionOrderByRelevanceFieldEnum = (typeof QuizQuestionOrderByRelevanceFieldEnum)[keyof typeof QuizQuestionOrderByRelevanceFieldEnum]
 
