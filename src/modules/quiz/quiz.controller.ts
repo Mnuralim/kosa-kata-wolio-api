@@ -89,10 +89,19 @@ export const quizController = {
     }
   },
 
-  async submit(req: Request, res: Response, next: NextFunction) {
+  async answer(req: AuthenticatedRequest, res: Response, next: NextFunction) {
     try {
-      const result = await quizService.submitAnswers(req.params.id!, req.body)
-      sendSuccess(res, result, 'Jawaban berhasil dikirim')
+      const result = await quizService.answerQuestion(req.user!.sub, req.params.id!, req.body)
+      sendSuccess(res, result, 'Jawaban tersimpan')
+    } catch (err) {
+      next(err)
+    }
+  },
+
+  async finish(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+    try {
+      const result = await quizService.finishAttempt(req.user!.sub, req.params.id!, req.body)
+      sendSuccess(res, result, 'Kuis selesai')
     } catch (err) {
       next(err)
     }

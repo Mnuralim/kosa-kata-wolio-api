@@ -128,5 +128,50 @@ export const quizRepository = {
       select: { id: true, indonesian: true, localLanguage: true },
       take: take * 3
     })
+  },
+
+  createAttempt(data: { userId: string; quizId: string }) {
+    return prisma.quizAttempt.create({ data })
+  },
+
+  findAttemptById(id: string) {
+    return prisma.quizAttempt.findUnique({ where: { id } })
+  },
+
+  createAttemptAnswer(data: {
+    attemptId: string
+    questionId: string
+    answer: string
+    correctAnswer: string
+    isCorrect: boolean
+  }) {
+    return prisma.quizAttemptAnswer.create({ data })
+  },
+
+  countCorrectAnswers(attemptId: string) {
+    return prisma.quizAttemptAnswer.count({ where: { attemptId, isCorrect: true } })
+  },
+
+  finishAttempt(id: string, data: { score: number; total: number }) {
+    return prisma.quizAttempt.update({
+      where: { id },
+      data: { ...data, finishedAt: new Date() }
+    })
+  },
+
+  findAttemptAnswers(attemptId: string) {
+    return prisma.quizAttemptAnswer.findMany({
+      where: { attemptId },
+      orderBy: { answeredAt: 'asc' },
+      include: {
+        question: {
+          include: {
+            word: {
+              select: { id: true, indonesian: true, localLanguage: true, localScript: true }
+            }
+          }
+        }
+      }
+    })
   }
 }

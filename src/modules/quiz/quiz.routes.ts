@@ -6,7 +6,8 @@ import {
   createQuizSchema,
   updateQuizSchema,
   createQuestionSchema,
-  submitQuizSchema
+  answerQuestionSchema,
+  finishQuizSchema
 } from './quiz.schema'
 
 export const quizRoutes = Router()
@@ -15,7 +16,22 @@ export const quizAdminRoutes = Router()
 // Public — no auth, dipakai halaman user
 quizRoutes.get('/', quizController.listPublic)
 quizRoutes.get('/:id/play', quizController.play)
-quizRoutes.post('/:id/submit', validate(submitQuizSchema), quizController.submit)
+
+// Butuh login user (bukan admin) — jawaban tersimpan sebagai riwayat kuis
+quizRoutes.post(
+  '/:id/answer',
+  authenticate,
+  authorizeAll,
+  validate(answerQuestionSchema),
+  quizController.answer
+)
+quizRoutes.post(
+  '/:id/finish',
+  authenticate,
+  authorizeAll,
+  validate(finishQuizSchema),
+  quizController.finish
+)
 
 // Admin — auth required, dipakai app admin buat kelola soal & kunci jawaban
 quizAdminRoutes.use(authenticate, authorizeAll)

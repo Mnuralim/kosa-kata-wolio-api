@@ -7,7 +7,7 @@ import {
   BadRequestException,
   NotFoundException
 } from '@/exceptions'
-import type { LoginInput, ChangePasswordInput } from './auth.schema'
+import type { LoginInput, RegisterInput, ChangePasswordInput } from './auth.schema'
 import type { TokenPayload } from '@/utils/jwt'
 
 export const authService = {
@@ -22,6 +22,39 @@ export const authService = {
     if (!valid) {
       throw new UnauthorizedException('Username atau password salah')
     }
+
+    const payload: TokenPayload = {
+      sub: user.id,
+      username: user.username,
+      name: user.name,
+      role: user.role
+    }
+
+    const token = signAccessToken(payload)
+
+    return {
+      token,
+      user: {
+        id: user.id,
+        username: user.username,
+        name: user.name,
+        role: user.role
+      }
+    }
+  },
+
+  async register(input: RegisterInput) {
+    const existing = await authRepository.findByUsername(input.username)
+    if (existing) {
+      throw new BadRequestException('Username sudah digunakan')
+    }
+
+    const hashed = await hashPassword(input.password)
+    const user = await authRepository.create({
+      username: input.username,
+      name: input.name,
+      password: hashed
+    })
 
     const payload: TokenPayload = {
       sub: user.id,

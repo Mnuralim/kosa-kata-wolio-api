@@ -18,6 +18,8 @@ model User {
   createdAt DateTime  @default(now()) @map("dibuat_pada")
   updatedAt DateTime  @updatedAt @map("diperbarui_pada")
 
+  attempts QuizAttempt[]
+
   @@index([username])
   @@map("pengguna")
 }
@@ -78,6 +80,7 @@ model SyncMeta {
 enum Role {
   ADMIN
   SUPER_ADMIN
+  USER
 }
 
 enum QuizLevel {
@@ -105,6 +108,7 @@ model Quiz {
   updatedAt DateTime  @updatedAt @map("diperbarui_pada")
 
   questions QuizQuestion[]
+  attempts  QuizAttempt[]
 
   @@index([level])
   @@map("kuis")
@@ -123,6 +127,42 @@ model QuizQuestion {
   deletedAt DateTime?        @map("terhapus_pada")
   createdAt DateTime         @default(now()) @map("dibuat_pada")
 
+  attemptAnswers QuizAttemptAnswer[]
+
   @@index([quizId])
   @@map("soal_kuis")
+}
+
+model QuizAttempt {
+  id         String   @id @default(uuid()) @map("riwayat_id")
+  userId     String   @map("pengguna_id") @db.VarChar(36)
+  user       User     @relation(fields: [userId], references: [id])
+  quizId     String   @map("kuis_id") @db.VarChar(36)
+  quiz       Quiz     @relation(fields: [quizId], references: [id])
+  score      Int      @default(0) @map("skor")
+  total      Int      @default(0) @map("total")
+  startedAt  DateTime @default(now()) @map("dimulai_pada")
+  finishedAt DateTime @default(now()) @map("selesai_pada")
+
+  answers QuizAttemptAnswer[]
+
+  @@index([userId])
+  @@index([quizId])
+  @@map("riwayat_kuis")
+}
+
+model QuizAttemptAnswer {
+  id            String      @id @default(uuid()) @map("jawaban_id")
+  attemptId     String      @map("riwayat_id") @db.VarChar(36)
+  attempt       QuizAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionId    String      @map("soal_id") @db.VarChar(36)
+  question      QuizQuestion @relation(fields: [questionId], references: [id])
+  answer        String      @map("jawaban") @db.VarChar(255)
+  correctAnswer String      @map("jawaban_benar") @db.VarChar(255)
+  isCorrect     Boolean     @map("benar")
+  answeredAt    DateTime    @default(now()) @map("dijawab_pada")
+
+  @@index([attemptId])
+  @@index([questionId])
+  @@map("riwayat_jawaban")
 }

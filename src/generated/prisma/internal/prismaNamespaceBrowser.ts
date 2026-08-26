@@ -57,7 +57,9 @@ export const ModelName = {
   Audio: 'Audio',
   SyncMeta: 'SyncMeta',
   Quiz: 'Quiz',
-  QuizQuestion: 'QuizQuestion'
+  QuizQuestion: 'QuizQuestion',
+  QuizAttempt: 'QuizAttempt',
+  QuizAttemptAnswer: 'QuizAttemptAnswer'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -166,6 +168,32 @@ export const QuizQuestionScalarFieldEnum = {
 export type QuizQuestionScalarFieldEnum = (typeof QuizQuestionScalarFieldEnum)[keyof typeof QuizQuestionScalarFieldEnum]
 
 
+export const QuizAttemptScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  quizId: 'quizId',
+  score: 'score',
+  total: 'total',
+  startedAt: 'startedAt',
+  finishedAt: 'finishedAt'
+} as const
+
+export type QuizAttemptScalarFieldEnum = (typeof QuizAttemptScalarFieldEnum)[keyof typeof QuizAttemptScalarFieldEnum]
+
+
+export const QuizAttemptAnswerScalarFieldEnum = {
+  id: 'id',
+  attemptId: 'attemptId',
+  questionId: 'questionId',
+  answer: 'answer',
+  correctAnswer: 'correctAnswer',
+  isCorrect: 'isCorrect',
+  answeredAt: 'answeredAt'
+} as const
+
+export type QuizAttemptAnswerScalarFieldEnum = (typeof QuizAttemptAnswerScalarFieldEnum)[keyof typeof QuizAttemptAnswerScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -267,4 +295,24 @@ export const QuizQuestionOrderByRelevanceFieldEnum = {
 } as const
 
 export type QuizQuestionOrderByRelevanceFieldEnum = (typeof QuizQuestionOrderByRelevanceFieldEnum)[keyof typeof QuizQuestionOrderByRelevanceFieldEnum]
+
+
+export const QuizAttemptOrderByRelevanceFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  quizId: 'quizId'
+} as const
+
+export type QuizAttemptOrderByRelevanceFieldEnum = (typeof QuizAttemptOrderByRelevanceFieldEnum)[keyof typeof QuizAttemptOrderByRelevanceFieldEnum]
+
+
+export const QuizAttemptAnswerOrderByRelevanceFieldEnum = {
+  id: 'id',
+  attemptId: 'attemptId',
+  questionId: 'questionId',
+  answer: 'answer',
+  correctAnswer: 'correctAnswer'
+} as const
+
+export type QuizAttemptAnswerOrderByRelevanceFieldEnum = (typeof QuizAttemptAnswerOrderByRelevanceFieldEnum)[keyof typeof QuizAttemptAnswerOrderByRelevanceFieldEnum]
 

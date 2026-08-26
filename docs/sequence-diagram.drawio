@@ -1,0 +1,117 @@
+<mxfile host="app.diagrams.net" version="24.7.5">
+  <diagram name="Sequence Diagram" id="seq-kkw">
+    <mxGraphModel dx="1400" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1120" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ============ ACTORS / LIFELINES HEADER ============ -->
+        <mxCell id="hdr_user" value="Pengguna" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="life_user" style="html=1;dashed=1;strokeWidth=1;strokeColor=#999999;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="80" as="sourcePoint" />
+            <mxPoint x="110" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- AppMobile -->
+        <mxCell id="hdr_app" value="Aplikasi Mobile" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="life_app" style="html=1;dashed=1;strokeWidth=1;strokeColor=#999999;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="80" as="sourcePoint" />
+            <mxPoint x="350" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- API -->
+        <mxCell id="hdr_api" value="REST API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="life_api" style="html=1;dashed=1;strokeWidth=1;strokeColor=#999999;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="80" as="sourcePoint" />
+            <mxPoint x="590" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DB -->
+        <mxCell id="hdr_db" value="Database (MySQL)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="life_db" style="html=1;dashed=1;strokeWidth=1;strokeColor=#999999;endArrow=none;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="830" y="80" as="sourcePoint" />
+            <mxPoint x="830" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ============ SECTION 1: SINKRONISASI ============ -->
+        <mxCell id="sec1" value="1. Sinkronisasi Data" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff6e0;strokeColor=#d6b656;verticalAlign=top;fontStyle=1;fontSize=13;spacingTop=4;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="860" height="360" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m1" value="Cek versi data terbaru" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="150" as="sourcePoint" /><mxPoint x="590" y="150" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m2" value="Ambil informasi versi data" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="180" as="sourcePoint" /><mxPoint x="830" y="180" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m3" value="Kembalikan versi data" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="210" as="sourcePoint" /><mxPoint x="350" y="210" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m3note" value="Jika ada data baru (versi lokal berbeda dari server)" style="text;html=1;align=left;fontStyle=2;fontSize=10;fontColor=#996600;" vertex="1" parent="1"><mxGeometry x="360" y="230" width="450" height="20" as="geometry" /></mxCell>
+
+        <mxCell id="m4" value="Minta data kategori terbaru" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="260" as="sourcePoint" /><mxPoint x="590" y="260" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m5" value="Ambil data kategori yang berubah" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="290" as="sourcePoint" /><mxPoint x="830" y="290" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m6" value="Kembalikan data kategori" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="320" as="sourcePoint" /><mxPoint x="350" y="320" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m7" value="Minta data kata terbaru" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="350" as="sourcePoint" /><mxPoint x="590" y="350" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m8" value="Ambil data kata yang berubah" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="380" as="sourcePoint" /><mxPoint x="830" y="380" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m9" value="Kembalikan data kata" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="410" as="sourcePoint" /><mxPoint x="350" y="410" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m10" value="Simpan data ke penyimpanan lokal" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="440" as="sourcePoint" /><mxPoint x="420" y="440" as="targetPoint" /></mxGeometry></mxCell>
+
+        <!-- ============ SECTION 2: KERJAKAN KUIS ============ -->
+        <mxCell id="sec2" value="2. Kerjakan Kuis" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdeaea;strokeColor=#b85450;verticalAlign=top;fontStyle=1;fontSize=13;spacingTop=4;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="500" width="860" height="520" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m11" value="Pilih tingkat kuis (EASY/MEDIUM/HARD)" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="110" y="540" as="sourcePoint" /><mxPoint x="350" y="540" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m12" value="Minta daftar kuis sesuai tingkat" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="570" as="sourcePoint" /><mxPoint x="590" y="570" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m13" value="Cari kuis berdasarkan tingkat kesulitan" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="600" as="sourcePoint" /><mxPoint x="830" y="600" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m14" value="Kembalikan daftar kuis" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="630" as="sourcePoint" /><mxPoint x="350" y="630" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m15" value="Pilih salah satu kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="110" y="660" as="sourcePoint" /><mxPoint x="350" y="660" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m16" value="Minta soal-soal kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="690" as="sourcePoint" /><mxPoint x="590" y="690" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m17" value="Ambil soal beserta kosakata terkait" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="720" as="sourcePoint" /><mxPoint x="830" y="720" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m18" value="Kembalikan soal &amp; pilihan jawaban" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="750" as="sourcePoint" /><mxPoint x="350" y="750" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m19" value="Tampilkan soal satu per satu" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="780" as="sourcePoint" /><mxPoint x="110" y="780" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m20" value="Jawab semua soal" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="110" y="810" as="sourcePoint" /><mxPoint x="350" y="810" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m21" value="Kirim jawaban kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="840" as="sourcePoint" /><mxPoint x="590" y="840" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m22" value="Ambil kunci jawaban soal" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="870" as="sourcePoint" /><mxPoint x="830" y="870" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m23" value="Hitung skor (cocokkan jawaban)" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="900" as="sourcePoint" /><mxPoint x="660" y="900" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m24" value="Kembalikan hasil skor" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="590" y="930" as="sourcePoint" /><mxPoint x="350" y="930" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m25" value="Tampilkan hasil skor" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="350" y="960" as="sourcePoint" /><mxPoint x="110" y="960" as="targetPoint" /></mxGeometry></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

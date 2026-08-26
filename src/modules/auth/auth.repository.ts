@@ -26,5 +26,11 @@ export const authRepository = {
       where: { id },
       data: { password: hashedPassword }
     })
+  },
+
+  create(data: { username: string; name: string; password: string }) {
+    return prisma.user.create({
+      data: { ...data, role: 'USER' }
+    })
   }
 }

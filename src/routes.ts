@@ -6,6 +6,7 @@ import { wordsRoutes } from '@/modules/words/words.routes'
 import { uploadRoutes } from '@/modules/upload/upload.routes'
 import { syncRoutes } from '@/modules/sync/sync.routes'
 import { quizRoutes, quizAdminRoutes } from '@/modules/quiz/quiz.routes'
+import { quizHistoryRoutes } from '@/modules/quiz-history/quiz-history.routes'
 
 export const apiRoutes = Router()
 
@@ -16,4 +17,5 @@ apiRoutes.use('/words', wordsRoutes)
 apiRoutes.use('/upload', uploadRoutes)
 apiRoutes.use('/sync', syncRoutes)
 apiRoutes.use('/quiz/admin', quizAdminRoutes)
+apiRoutes.use('/quiz-history', quizHistoryRoutes)
 apiRoutes.use('/quiz', quizRoutes)

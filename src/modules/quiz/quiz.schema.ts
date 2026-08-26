@@ -31,18 +31,18 @@ export const createQuestionSchema = z.object({
   order: z.number().int().min(0).optional()
 })
 
-export const submitQuizSchema = z.object({
-  answers: z
-    .array(
-      z.object({
-        questionId: z.string().min(1),
-        answer: z.string().min(1)
-      })
-    )
-    .min(1, 'Jawaban wajib diisi')
+export const answerQuestionSchema = z.object({
+  attemptId: z.string().min(1).optional(),
+  questionId: z.string().min(1, 'Soal wajib diisi'),
+  answer: z.string().min(1, 'Jawaban wajib diisi')
+})
+
+export const finishQuizSchema = z.object({
+  attemptId: z.string().min(1, 'Attempt wajib diisi')
 })
 
 export type CreateQuizInput = z.infer<typeof createQuizSchema>
 export type UpdateQuizInput = z.infer<typeof updateQuizSchema>
 export type CreateQuestionInput = z.infer<typeof createQuestionSchema>
-export type SubmitQuizInput = z.infer<typeof submitQuizSchema>
+export type AnswerQuestionInput = z.infer<typeof answerQuestionSchema>
+export type FinishQuizInput = z.infer<typeof finishQuizSchema>

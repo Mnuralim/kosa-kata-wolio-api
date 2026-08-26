@@ -1,13 +1,22 @@
 import type { Response, NextFunction } from 'express'
 import type { AuthenticatedRequest } from '@/middlewares/auth.middleware'
 import { authService } from './auth.service'
-import { sendSuccess } from '@/utils/response'
+import { sendSuccess, sendCreated } from '@/utils/response'
 
 export const authController = {
   async login(req: AuthenticatedRequest, res: Response, next: NextFunction) {
     try {
       const result = await authService.login(req.body)
       sendSuccess(res, result, 'Login berhasil')
+    } catch (err) {
+      next(err)
+    }
+  },
+
+  async register(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+    try {
+      const result = await authService.register(req.body)
+      sendCreated(res, result, 'Registrasi berhasil')
     } catch (err) {
       next(err)
     }

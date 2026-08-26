@@ -1,7 +1,13 @@
 import { quizRepository } from './quiz.repository'
 import { NotFoundException, BadRequestException } from '@/exceptions'
 import type { QuizLevel, QuizQuestionType } from '@/generated/prisma/client'
-import type { CreateQuizInput, UpdateQuizInput, CreateQuestionInput, SubmitQuizInput } from './quiz.schema'
+import type {
+  CreateQuizInput,
+  UpdateQuizInput,
+  CreateQuestionInput,
+  AnswerQuestionInput,
+  FinishQuizInput
+} from './quiz.schema'
 
 type WordLike = {
   indonesian: string
@@ -192,33 +198,62 @@ export const quizService = {
     }
   },
 
-  async submitAnswers(id: string, input: SubmitQuizInput) {
-    const quiz = await quizRepository.findById(id)
+  async answerQuestion(userId: string, quizId: string, input: AnswerQuestionInput) {
+    const quiz = await quizRepository.findById(quizId)
     if (!quiz) throw new NotFoundException('Kuis')
 
-    const questionMap = new Map(quiz.questions.map((q) => [q.id, q]))
+    const question = quiz.questions.find((q) => q.id === input.questionId)
+    if (!question) {
+      throw new BadRequestException('Soal tidak ditemukan pada kuis ini')
+    }
 
-    let correct = 0
-    const results = input.answers.map((a) => {
-      const question = questionMap.get(a.questionId)
-      if (!question) {
-        throw new BadRequestException('Soal tidak ditemukan pada kuis ini')
+    let attemptId = input.attemptId
+    if (attemptId) {
+      const attempt = await quizRepository.findAttemptById(attemptId)
+      if (!attempt || attempt.userId !== userId || attempt.quizId !== quizId) {
+        throw new BadRequestException('Attempt tidak valid')
       }
-      const targetField = getTargetField(question.type)
-      const correctAnswer = question.word[targetField]
-      const isCorrect = a.answer === correctAnswer
-      if (isCorrect) correct++
-      return {
-        questionId: a.questionId,
-        isCorrect,
-        correctAnswer
-      }
+    } else {
+      const attempt = await quizRepository.createAttempt({ userId, quizId })
+      attemptId = attempt.id
+    }
+
+    const targetField = getTargetField(question.type)
+    const correctAnswer = question.word[targetField]
+    const isCorrect = input.answer === correctAnswer
+
+    await quizRepository.createAttemptAnswer({
+      attemptId,
+      questionId: question.id,
+      answer: input.answer,
+      correctAnswer,
+      isCorrect
     })
 
+    return { attemptId, isCorrect, correctAnswer }
+  },
+
+  async finishAttempt(userId: string, quizId: string, input: FinishQuizInput) {
+    const attempt = await quizRepository.findAttemptById(input.attemptId)
+    if (!attempt || attempt.userId !== userId || attempt.quizId !== quizId) {
+      throw new NotFoundException('Attempt')
+    }
+
+    const [answers, score] = await Promise.all([
+      quizRepository.findAttemptAnswers(attempt.id),
+      quizRepository.countCorrectAnswers(attempt.id)
+    ])
+
+    await quizRepository.finishAttempt(attempt.id, { score, total: answers.length })
+
     return {
-      score: correct,
-      total: quiz.questions.length,
-      results
+      score,
+      total: answers.length,
+      results: answers.map((a) => ({
+        questionId: a.questionId,
+        isCorrect: a.isCorrect,
+        correctAnswer: a.correctAnswer
+      }))
     }
   }
 }
