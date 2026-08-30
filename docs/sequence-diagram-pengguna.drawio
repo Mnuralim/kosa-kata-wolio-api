@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" version="24.7.5">
   <diagram name="Sequence Diagram - Pengguna" id="seq-user-kkw">
-    <mxGraphModel dx="1400" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1300" math="0" shadow="0">
+    <mxGraphModel dx="1400" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -12,7 +12,7 @@
         <mxCell id="life_user" style="html=1;dashed=1;strokeWidth=1;strokeColor=#333333;endArrow=none;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="85" y="100" as="sourcePoint" />
-            <mxPoint x="85" y="1220" as="targetPoint" />
+            <mxPoint x="85" y="1650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
 
@@ -23,7 +23,7 @@
         <mxCell id="life_app" style="html=1;dashed=1;strokeWidth=1;strokeColor=#333333;endArrow=none;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="330" y="70" as="sourcePoint" />
-            <mxPoint x="330" y="1220" as="targetPoint" />
+            <mxPoint x="330" y="1650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
 
@@ -34,7 +34,7 @@
         <mxCell id="life_local" style="html=1;dashed=1;strokeWidth=1;strokeColor=#333333;endArrow=none;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="535" y="70" as="sourcePoint" />
-            <mxPoint x="535" y="1220" as="targetPoint" />
+            <mxPoint x="535" y="1650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
 
@@ -45,7 +45,7 @@
         <mxCell id="life_api" style="html=1;dashed=1;strokeWidth=1;strokeColor=#333333;endArrow=none;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="730" y="70" as="sourcePoint" />
-            <mxPoint x="730" y="1220" as="targetPoint" />
+            <mxPoint x="730" y="1650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
 
@@ -56,7 +56,7 @@
         <mxCell id="life_db" style="html=1;dashed=1;strokeWidth=1;strokeColor=#333333;endArrow=none;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="910" y="70" as="sourcePoint" />
-            <mxPoint x="910" y="1220" as="targetPoint" />
+            <mxPoint x="910" y="1650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
 
@@ -106,7 +106,7 @@
         </mxCell>
 
         <mxCell id="act_app_3" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#333333;" vertex="1" parent="1">
-          <mxGeometry x="325" y="705" width="10" height="440" as="geometry" />
+          <mxGeometry x="325" y="705" width="10" height="590" as="geometry" />
         </mxCell>
         <mxCell id="act_api_3" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#333333;" vertex="1" parent="1">
           <mxGeometry x="725" y="735" width="10" height="90" as="geometry" />
@@ -115,7 +115,10 @@
           <mxGeometry x="725" y="855" width="10" height="90" as="geometry" />
         </mxCell>
         <mxCell id="act_api_3c" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#333333;" vertex="1" parent="1">
-          <mxGeometry x="725" y="1005" width="10" height="90" as="geometry" />
+          <mxGeometry x="725" y="985" width="10" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="act_api_3d" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="725" y="1195" width="10" height="90" as="geometry" />
         </mxCell>
 
         <mxCell id="m16" value="1: Pilih tingkat kuis (EASY/MEDIUM/HARD)" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="85" y="705" as="sourcePoint" /><mxPoint x="325" y="705" as="targetPoint" /></mxGeometry></mxCell>
@@ -123,15 +126,52 @@
         <mxCell id="m18" value="3: Cari kuis berdasarkan tingkat kesulitan" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="735" y="765" as="sourcePoint" /><mxPoint x="910" y="765" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="m19" value="4: Kembalikan daftar kuis" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="725" y="800" as="sourcePoint" /><mxPoint x="335" y="800" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="m20" value="5: Pilih salah satu kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="85" y="830" as="sourcePoint" /><mxPoint x="325" y="830" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="m21" value="6: Minta soal-soal kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="335" y="855" as="sourcePoint" /><mxPoint x="725" y="855" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m21" value="6: Minta soal-soal kuis untuk dimainkan" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="335" y="855" as="sourcePoint" /><mxPoint x="725" y="855" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="m22" value="7: Ambil soal beserta kosakata terkait" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="735" y="885" as="sourcePoint" /><mxPoint x="910" y="885" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="m23" value="8: Kembalikan soal &amp; pilihan jawaban" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="725" y="920" as="sourcePoint" /><mxPoint x="335" y="920" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m23" value="8: Kembalikan soal &amp; pilihan jawaban (acak)" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="725" y="920" as="sourcePoint" /><mxPoint x="335" y="920" as="targetPoint" /></mxGeometry></mxCell>
         <mxCell id="m24" value="9: Tampilkan soal satu per satu" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="325" y="950" as="sourcePoint" /><mxPoint x="85" y="950" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="m25" value="10: Jawab semua soal" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="85" y="980" as="sourcePoint" /><mxPoint x="325" y="980" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="m26" value="11: Kirim jawaban kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="335" y="1005" as="sourcePoint" /><mxPoint x="725" y="1005" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="m27" value="12: Ambil kunci jawaban &amp; hitung skor" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="735" y="1035" as="sourcePoint" /><mxPoint x="910" y="1035" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="m28" value="13: Kembalikan hasil skor" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="725" y="1070" as="sourcePoint" /><mxPoint x="335" y="1070" as="targetPoint" /></mxGeometry></mxCell>
-        <mxCell id="m29" value="14: Tampilkan hasil skor" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="325" y="1100" as="sourcePoint" /><mxPoint x="85" y="1100" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m24loop" value="loop: untuk setiap soal (belum dijawab)" style="text;html=1;align=left;fontStyle=2;fontSize=10;fontColor=#990000;" vertex="1" parent="1"><mxGeometry x="345" y="965" width="450" height="20" as="geometry" /></mxCell>
+        <mxCell id="m25" value="10: Pilih jawaban" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="85" y="985" as="sourcePoint" /><mxPoint x="325" y="985" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m26" value="11: Kirim jawaban soal (attemptId, questionId, answer)" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="335" y="1010" as="sourcePoint" /><mxPoint x="725" y="1010" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m26note" value="alt: jika belum ada attemptId, buat attempt kuis baru" style="text;html=1;align=left;fontStyle=2;fontSize=10;fontColor=#990000;" vertex="1" parent="1"><mxGeometry x="360" y="1025" width="450" height="20" as="geometry" /></mxCell>
+        <mxCell id="m27" value="12: Cocokkan jawaban, simpan attempt-answer" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="735" y="1050" as="sourcePoint" /><mxPoint x="910" y="1050" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m28" value="13: Kembalikan attemptId, benar/salah &amp; jawaban benar" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="725" y="1085" as="sourcePoint" /><mxPoint x="335" y="1085" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m29" value="14: Tampilkan feedback jawaban, lanjut ke soal berikutnya" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="325" y="1115" as="sourcePoint" /><mxPoint x="85" y="1115" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m29loopend" value="end loop" style="text;html=1;align=left;fontStyle=2;fontSize=10;fontColor=#990000;" vertex="1" parent="1"><mxGeometry x="345" y="1130" width="450" height="20" as="geometry" /></mxCell>
+
+        <mxCell id="m30" value="15: Soal terakhir terjawab, selesaikan kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="85" y="1165" as="sourcePoint" /><mxPoint x="325" y="1165" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m31" value="16: Kirim permintaan selesaikan kuis (attemptId)" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="335" y="1195" as="sourcePoint" /><mxPoint x="725" y="1195" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m32" value="17: Ambil semua jawaban attempt &amp; hitung skor" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="735" y="1225" as="sourcePoint" /><mxPoint x="910" y="1225" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m33" value="18: Tandai attempt selesai, simpan skor final" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="735" y="1250" as="sourcePoint" /><mxPoint x="910" y="1250" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m34" value="19: Kembalikan skor total &amp; rincian hasil" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="725" y="1260" as="sourcePoint" /><mxPoint x="335" y="1260" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m35" value="20: Tampilkan hasil skor kuis" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="325" y="1290" as="sourcePoint" /><mxPoint x="85" y="1290" as="targetPoint" /></mxGeometry></mxCell>
+
+        <!-- ============ SECTION 4: RIWAYAT KUIS ============ -->
+        <mxCell id="sec4" value="4. Lihat Riwayat Kuis" style="text;html=1;align=left;fontStyle=1;fontSize=13;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1325" width="500" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="act_app_4" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="325" y="1360" width="10" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="act_api_4" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="725" y="1390" width="10" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="act_api_4b" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="725" y="1510" width="10" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m36" value="1: Buka halaman riwayat kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="85" y="1360" as="sourcePoint" /><mxPoint x="325" y="1360" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m37" value="2: Minta daftar riwayat kuis milik saya" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="335" y="1390" as="sourcePoint" /><mxPoint x="725" y="1390" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m38" value="3: Ambil semua attempt milik pengguna" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="735" y="1420" as="sourcePoint" /><mxPoint x="910" y="1420" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m39" value="4: Kembalikan daftar riwayat (skor, tingkat, tanggal)" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="725" y="1450" as="sourcePoint" /><mxPoint x="335" y="1450" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m40" value="5: Pilih salah satu riwayat" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="85" y="1480" as="sourcePoint" /><mxPoint x="325" y="1480" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m41" value="6: Minta detail riwayat kuis" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="335" y="1510" as="sourcePoint" /><mxPoint x="725" y="1510" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m41note" value="alt: jika attempt bukan milik pengguna, tolak akses (403 Forbidden)" style="text;html=1;align=left;fontStyle=2;fontSize=10;fontColor=#990000;" vertex="1" parent="1"><mxGeometry x="360" y="1525" width="480" height="20" as="geometry" /></mxCell>
+        <mxCell id="m42" value="7: Ambil detail attempt beserta jawaban tiap soal" style="html=1;endArrow=block;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="735" y="1545" as="sourcePoint" /><mxPoint x="910" y="1545" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m43" value="8: Kembalikan detail jawaban &amp; jawaban benar" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="725" y="1580" as="sourcePoint" /><mxPoint x="335" y="1580" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m44" value="9: Tampilkan rincian jawaban per soal" style="html=1;endArrow=block;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="325" y="1610" as="sourcePoint" /><mxPoint x="85" y="1610" as="targetPoint" /></mxGeometry></mxCell>
 
       </root>
     </mxGraphModel>
