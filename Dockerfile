@@ -20,7 +20,8 @@ FROM oven/bun:1.2-slim
 
 WORKDIR /app
 
-RUN apt-get update -y && apt-get install -y openssl curl && rm -rf /var/lib/apt/lists/*
+# ffmpeg dipakai untuk membersihkan noise audio saat upload
+RUN apt-get update -y && apt-get install -y openssl curl ffmpeg && rm -rf /var/lib/apt/lists/*
 
 # Security: non-root user
 RUN groupadd -r app && useradd -r -g app app

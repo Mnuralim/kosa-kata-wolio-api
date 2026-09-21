@@ -1,5 +1,6 @@
 import type { Request, Response, NextFunction } from 'express'
 import { ZodError } from 'zod'
+import { MulterError } from 'multer'
 import { Prisma } from '@/generated/prisma/client'
 import { HttpException } from '@/exceptions/http-exception'
 import { logger } from '@/utils/logger'
@@ -50,6 +51,17 @@ export function errorMiddleware(
     res.status(404).json({
       success: false,
       message: 'Data tidak ditemukan'
+    })
+    return
+  }
+
+  if (err instanceof MulterError) {
+    res.status(err.code === 'LIMIT_FILE_SIZE' ? 413 : 400).json({
+      success: false,
+      message:
+        err.code === 'LIMIT_FILE_SIZE'
+          ? 'Ukuran file melebihi batas 15MB'
+          : 'File upload tidak valid'
     })
     return
   }
